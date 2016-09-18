@@ -17,11 +17,11 @@ public class AboutRegularExpressions {
         Pattern p = Pattern.compile("xyz");
         Matcher m = p.matcher("xyzxxxxyz");
         // index 012345678
-        assertEquals(m.find(), __);
-        assertEquals(m.start(), __);
-        assertEquals(m.find(), __);
-        assertEquals(m.start(), __);
-        assertEquals(m.find(), __);
+        assertEquals(m.find(), true);
+        assertEquals(m.start(), 0);
+        assertEquals(m.find(), true);
+        assertEquals(m.start(), 6);
+        assertEquals(m.find(), false);
     }
 
     @Koan
@@ -29,12 +29,12 @@ public class AboutRegularExpressions {
         Pattern p = Pattern.compile("x.z");
         Matcher m = p.matcher("xyz u x z u xfz");
         // index 012345678901234
-        assertEquals(m.find(), __);
-        assertEquals(m.start(), __);
-        assertEquals(m.find(), __);
-        assertEquals(m.start(), __);
-        assertEquals(m.find(), __);
-        assertEquals(m.start(), __);
+        assertEquals(m.find(), true);
+        assertEquals(m.start(), 0);
+        assertEquals(m.find(), true);
+        assertEquals(m.start(), 6);
+        assertEquals(m.find(), true);
+        assertEquals(m.start(), 12);
     }
 
     @Koan
@@ -42,8 +42,8 @@ public class AboutRegularExpressions {
         Pattern p = Pattern.compile("end\\.");
         Matcher m = p.matcher("begin. end.");
         // index 01234567890
-        assertEquals(m.find(), __);
-        assertEquals(m.start(), __);
+        assertEquals(m.find(), true);
+        assertEquals(m.start(), 7);
     }
 
     @Koan
